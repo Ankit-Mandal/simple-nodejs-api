@@ -1,0 +1,30 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+main {
+  margin-left: 50%;
+  margin-top: 7rem;
+  transform: translateX(-50%);
+  border: 2px solid black;
+  padding: 2rem;
+}
+
+h1 {
+  margin-bottom: 1rem;
+  transform: translateX(40%);
+}
+
+div {
+  margin-top: 2rem;
+}

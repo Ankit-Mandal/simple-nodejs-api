@@ -1,0 +1,39 @@
+----------------------------------------------------------------------------------------
+TUTORIAL URL: 
+1. https://medium.com/@yasirahboyce/node-express-knex-postgresql-22e10daf0817
+2. https://www.youtube.com/watch?v=jUfbw6AB1pI&list=PL84tBTIF9oqIka86oSQwNoziQ9ONTSXu1&index=8
+----------------------------------------------------------------------------------------
+
+CREATE A FOLDER NAMED "db" inside the main project directory
+CREATE A FILE NAMED db.js inside the db folder
+
+WITHIN DB:
+
+1. npx knex init
+
+    This will create a knexfile.js file. Here, we will have to provide MSSQL database configurations, like -
+    server: "localhost",
+    port: 1433,
+    database: "DATABASE_NAME",
+    user: "USERNAME",
+    password: "PASSWORD"
+
+2. npx knex migrate:make create_todo_table
+
+    This will create a migration file. A migration is the process of creating tables and essentially just designing their schema. A schema of the tables refers to the columns that make up the table, the data types for each column, and the relationship a table may have with other tables in our database. Once we have our database configured, we should now create our migration file that will hold the schema of our table.
+
+    We should now see a folder called ‘migrations’ and this will be the location of our table’s first migration and all the future migrations for the table.
+
+    We can open the only migration file we currently see and take a look at the starter code. What we see is the structure for a migration, both exporting migrations up and down. We have to insert the code to create the table’s schema (up) and to revert the table back to its original state (down).
+
+3. npx knex migrate:latest
+
+    This will run the latest migration file and create the table in the MSSQL database.
+
+4. npx knex seed:make 01_seed
+
+    This will create our seed file and create some starter task to populate our table with some initial row object data. (CAUTION - DON'T PROVIDE VALUES FOR "id" COLUMN IN THE ROW OBJECTS, MSSQL WILL AUTOMATICALLY INSERT THE ID IN INCREMENTING ORDER)
+
+5. npx knex seed:run
+
+    THIS WILL EXECUTE THE TASK IN ABOVE FILE, THUS CREATING THE DATA ROWS IN MSSQL TABLE
